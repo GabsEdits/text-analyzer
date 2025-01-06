@@ -48,7 +48,7 @@ deno run -N api/mod.ts
 ### Example
 
 ```bash
-curl text-analyzer-api.deno.dev/This%20is%20an%20example%20text%20to%20analyze%20using%20%20the%20API%20endpoint.
+curl https://text-analyzer-api.deno.dev/This%20is%20an%20example%20text%20to%20analyze%20using%20%20the%20API%20endpoint.
 ```
 
 ## Webapp
