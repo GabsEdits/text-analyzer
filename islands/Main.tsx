@@ -70,10 +70,10 @@ export default function Main() {
   const renderCard = (
     item: { title: string; value: string; suffix?: string },
   ) => (
-    <div class="flex flex-col items-center justify-center px-6 py-6 bg-zinc-100 dark:bg-zinc-900 w-full h-full">
+    <div class="flex flex-col items-center justify-center px-4 py-4 bg-zinc-100 dark:bg-zinc-900 size-full">
       <h3 class="text-lg font-semibold">{item.title}</h3>
-      <div class="flex flex-col gap-2 items-center justify-center">
-        <p class="text-5xl font-serif">{item.value}</p>
+      <div class="flex flex-col gap-1 items-center justify-center">
+        <p class="text-3xl font-serif">{item.value}</p>
         {item.suffix && <p class="text-sm">{item.suffix}</p>}
       </div>
     </div>
@@ -96,34 +96,34 @@ export default function Main() {
   };
 
   return (
-<div class="flex flex-col py-20 gap-5">
-  <h1 class="text-4xl font-serif">Text Analyzer</h1>
+    <div class="flex flex-col py-10 gap-4">
+      <h1 class="text-3xl font-serif text-center">Text Analyzer</h1>
 
-  <Input onChange={handleInputChange} />
-  {error && <p class="text-red-500">{error}</p>}
+      <Input onChange={handleInputChange} />
+      {error && <p class="text-red-500 text-center">{error}</p>}
 
-  <div class="flex flex-wrap flex-col md:flex-row items-start justify-center gap-5">
-    <div class="flex flex-col items-center gap-1 flex-1 overflow-hidden rounded-xl h-[30rem]">
-      {stats.map((item) => renderCard(item))}
+      <div class="flex flex-wrap flex-col md:flex-row items-start justify-center gap-4">
+        <div class="flex flex-col items-center gap-2 flex-1 overflow-hidden rounded-xl w-full lg:h-[25rem]">
+          {stats.map((item) => renderCard(item))}
+        </div>
+
+        <div class="flex flex-col items-center gap-2 flex-1 overflow-hidden rounded-xl w-full lg:h-[25rem]">
+          {readabilityMetrics.map((item) => renderCard(item))}
+        </div>
+
+        <div class="flex flex-col items-center gap-2 flex-1 overflow-hidden rounded-xl w-full lg:h-[25rem]">
+          {textComposition.map((item) => renderCard(item))}
+        </div>
+      </div>
+
+      <div class="flex flex-row items-center justify-center gap-4">
+        <button
+          onClick={exportToCSV}
+          class="py-2 px-4 bg-zinc-100 dark:bg-zinc-900 rounded-xl"
+        >
+          Export to CSV
+        </button>
+      </div>
     </div>
-
-    <div class="flex flex-col items-center gap-1 flex-1 overflow-hidden rounded-xl h-[30rem]">
-      {readabilityMetrics.map((item) => renderCard(item))}
-    </div>
-
-    <div class="flex flex-col items-center gap-1 flex-1 overflow-hidden rounded-xl h-[30rem]">
-      {textComposition.map((item) => renderCard(item))}
-    </div>
-  </div>
-
-  <div class="flex flex-row items-center justify-center gap-5">
-    <button
-      onClick={exportToCSV}
-      class="py-3 px-6 bg-zinc-100 dark:bg-zinc-900 rounded-xl"
-    >
-      Export to CSV
-    </button>
-  </div>
-</div>
   );
 }
