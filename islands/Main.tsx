@@ -30,7 +30,7 @@ export default function Main() {
       return;
     }
     setError("");
-    fetch(`http://localhost:8001/${encodeURIComponent(text)}`)
+    fetch(`https://text-analyzer-api.deno.dev/${encodeURIComponent(text)}`)
       .then((response) => response.json())
       .then((data) => {
         setStats([
