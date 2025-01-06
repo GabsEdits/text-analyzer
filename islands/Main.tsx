@@ -96,34 +96,34 @@ export default function Main() {
   };
 
   return (
-    <div class="flex flex-col py-20 gap-5">
-      <h1 class="text-4xl font-serif">Text Analyzer</h1>
+<div class="flex flex-col py-20 gap-5">
+  <h1 class="text-4xl font-serif">Text Analyzer</h1>
 
-      <Input onChange={handleInputChange} />
-      {error && <p class="text-red-500">{error}</p>}
+  <Input onChange={handleInputChange} />
+  {error && <p class="text-red-500">{error}</p>}
 
-      <div class="flex flex-row items-start justify-center gap-5">
-        <div class="flex flex-col items-center gap-1 flex-1 overflow-hidden rounded-xl h-[30rem]">
-          {stats.map((item) => renderCard(item))}
-        </div>
-
-        <div class="flex flex-col items-center gap-1 flex-1 overflow-hidden rounded-xl h-[30rem]">
-          {readabilityMetrics.map((item) => renderCard(item))}
-        </div>
-
-        <div class="flex flex-col items-center gap-1 flex-1 overflow-hidden rounded-xl h-[30rem]">
-          {textComposition.map((item) => renderCard(item))}
-        </div>
-      </div>
-
-      <div class="flex flex-row items-center justify-center gap-5">
-        <button
-          onClick={exportToCSV}
-          class="py-3 px-6 bg-zinc-100 dark:bg-zinc-900 rounded-xl"
-        >
-          Export to CSV
-        </button>
-      </div>
+  <div class="flex flex-wrap flex-col md:flex-row items-start justify-center gap-5">
+    <div class="flex flex-col items-center gap-1 flex-1 overflow-hidden rounded-xl h-[30rem]">
+      {stats.map((item) => renderCard(item))}
     </div>
+
+    <div class="flex flex-col items-center gap-1 flex-1 overflow-hidden rounded-xl h-[30rem]">
+      {readabilityMetrics.map((item) => renderCard(item))}
+    </div>
+
+    <div class="flex flex-col items-center gap-1 flex-1 overflow-hidden rounded-xl h-[30rem]">
+      {textComposition.map((item) => renderCard(item))}
+    </div>
+  </div>
+
+  <div class="flex flex-row items-center justify-center gap-5">
+    <button
+      onClick={exportToCSV}
+      class="py-3 px-6 bg-zinc-100 dark:bg-zinc-900 rounded-xl"
+    >
+      Export to CSV
+    </button>
+  </div>
+</div>
   );
 }
