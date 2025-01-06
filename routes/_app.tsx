@@ -8,6 +8,7 @@ export default function App({ Component }: PageProps) {
         <title>Text Analyzer</title>
         <meta name="description" content="Analyze text for statistics, readability, and composition." />
         <link rel="stylesheet" href="/styles.css" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       </head>
       <body>
         <div id="app">
