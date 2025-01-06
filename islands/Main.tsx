@@ -26,7 +26,7 @@ export default function Main() {
     const text = (event.target as HTMLTextAreaElement).value;
     setInputText(text);
     if (text.length < 10) {
-      setError("Please enter more text");
+      setError("Please enter more text (at least 10 characters)");
       return;
     }
     setError("");
@@ -102,17 +102,26 @@ export default function Main() {
       <Input onChange={handleInputChange} />
       {error && <p class="text-red-500 text-center">{error}</p>}
 
-      <div class="flex flex-wrap flex-col md:flex-row items-start justify-center gap-4">
-        <div class="flex flex-col items-center gap-2 flex-1 overflow-hidden rounded-xl w-full lg:h-[25rem]">
-          {stats.map((item) => renderCard(item))}
+      <div class="flex flex-nowrap flex-col md:flex-row items-start justify-center gap-4">
+        <div class="flex flex-col items-center gap-2 justify-center lg:h-[30rem] w-full md:w-1/3">
+          <h2 class="text-2xl font-serif">Basic Stats</h2>
+          <div class="flex flex-col items-center gap-2 flex-1 overflow-hidden rounded-xl w-full">
+            {stats.map((item) => renderCard(item))}
+          </div>
         </div>
 
-        <div class="flex flex-col items-center gap-2 flex-1 overflow-hidden rounded-xl w-full lg:h-[25rem]">
-          {readabilityMetrics.map((item) => renderCard(item))}
+        <div class="flex flex-col items-center gap-2 justify-center lg:h-[30rem] w-full md:w-1/3">
+          <h2 class="text-2xl font-serif">Readability Metrics</h2>
+          <div class="flex flex-col items-center gap-2 flex-1 overflow-hidden rounded-xl w-full">
+            {readabilityMetrics.map((item) => renderCard(item))}
+          </div>
         </div>
 
-        <div class="flex flex-col items-center gap-2 flex-1 overflow-hidden rounded-xl w-full lg:h-[25rem]">
-          {textComposition.map((item) => renderCard(item))}
+        <div class="flex flex-col items-center gap-2 justify-center lg:h-[30rem] w-full md:w-1/3">
+          <h2 class="text-2xl font-serif">Text Composition</h2>
+          <div class="flex flex-col items-center gap-2 flex-1 overflow-hidden rounded-xl w-full">
+            {textComposition.map((item) => renderCard(item))}
+          </div>
         </div>
       </div>
 
